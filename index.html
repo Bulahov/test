@@ -1,16 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Image Comparison Slider</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Подключаем стили Juxtapose -->
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+    
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slider-wrapper {
+            margin: 30px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello World Test</h1>
-        <p id="datetime"></p>
+        <div class="slider-wrapper">
+            <!-- Контейнер для слайдера -->
+            <div id="image-comparison"></div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Подключаем скрипт Juxtapose -->
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+    
+    <script>
+        // Инициализация слайдера
+        var slider = new juxtapose.JXSlider('#image-comparison',
+            [
+                {
+                    src: 'URL_ПЕРВОГО_ИЗОБРАЖЕНИЯ',  // Замените на URL вашего первого изображения
+                    label: 'До'  // Подпись для первого изображения
+                },
+                {
+                    src: 'URL_ВТОРОГО_ИЗОБРАЖЕНИЯ',  // Замените на URL вашего второго изображения
+                    label: 'После'  // Подпись для второго изображения
+                }
+            ],
+            {
+                showLabels: true,  // Показывать подписи
+                showCredits: true,  // Показывать credits
+                startingPosition: "50%",  // Начальная позиция ползунка
+                makeResponsive: true  // Адаптивность
+            });
+    </script>
 </body>
 </html>
